@@ -14,7 +14,7 @@ brew install --cask mactex-no-gui
 # or lighter: brew install basictex
 
 # 2. Install the skill
-git clone https://github.com/christiannikolov/pdflatex-skill.git ~/.claude/skills/pdflatex
+git clone https://github.com/b1rd33/pdflatex-skill.git ~/.claude/skills/pdflatex
 
 # 3. Done — use /pdflatex in Claude Code
 ```
@@ -36,7 +36,7 @@ sudo apt install -y texlive-full
 sudo dnf install texlive-scheme-full
 
 # Install the skill
-git clone https://github.com/christiannikolov/pdflatex-skill.git ~/.claude/skills/pdflatex
+git clone https://github.com/b1rd33/pdflatex-skill.git ~/.claude/skills/pdflatex
 ```
 
 ### Windows (WSL recommended)
@@ -46,16 +46,24 @@ git clone https://github.com/christiannikolov/pdflatex-skill.git ~/.claude/skill
 # 1. Install WSL if not already: wsl --install
 # 2. Inside WSL:
 sudo apt update && sudo apt install -y texlive-full
-git clone https://github.com/christiannikolov/pdflatex-skill.git ~/.claude/skills/pdflatex
+git clone https://github.com/b1rd33/pdflatex-skill.git ~/.claude/skills/pdflatex
 
 # Option B: Native Windows (MiKTeX)
 # 1. Install MiKTeX from https://miktex.org/download
 # 2. Install Claude Code for Windows
 # 3. Clone the skill:
-#    git clone https://github.com/christiannikolov/pdflatex-skill.git %USERPROFILE%\.claude\skills\pdflatex
+#    git clone https://github.com/b1rd33/pdflatex-skill.git %USERPROFILE%\.claude\skills\pdflatex
 #
 # Note: WSL is the recommended path. Native Windows has not been tested —
 # if you hit issues with path separators or shell scripts, switch to WSL.
+```
+
+### Project-level install (optional)
+
+To make the skill available only within a specific project:
+
+```bash
+git clone https://github.com/b1rd33/pdflatex-skill.git .claude/skills/pdflatex
 ```
 
 ### Verify installation
