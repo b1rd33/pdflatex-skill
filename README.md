@@ -100,43 +100,45 @@ Open Claude Code and describe what you want. The skill activates automatically w
 
 ### Examples you can try right now
 
+Just describe what you want in plain English. The skill activates automatically.
+
 **Create documents from scratch:**
 ```
-/pdflatex make me a professional invoice for consulting work — 3 line items, company logo placeholder, payment terms
+Make me a professional invoice for consulting work — 3 line items, company logo placeholder, payment terms
 ```
 ```
-/pdflatex create a 10-page research report template with table of contents and bibliography
+Create a 10-page research report template with table of contents and bibliography
 ```
 ```
-/pdflatex build a modern CV for a software engineer — single page, clean layout, ATS-friendly
+Build a modern CV for a software engineer — single page, clean layout, ATS-friendly
 ```
 ```
-/pdflatex make a beamer presentation about Q1 results, 12 slides, modern theme
+Make a beamer presentation about Q1 results, 12 slides, modern theme
 ```
 ```
-/pdflatex write a formal business letter declining a partnership proposal
+Write a formal business letter declining a partnership proposal
 ```
 
 **Work with existing files:**
 ```
-/pdflatex compile this .tex file and fix any errors
+Compile this .tex file and fix any errors
 ```
 ```
-/pdflatex add a bibliography to my paper using biblatex and biber
+Add a bibliography to my paper using biblatex and biber
 ```
 ```
-/pdflatex convert my paper to PDF/A format for thesis submission
+Convert my paper to PDF/A format for thesis submission
 ```
 ```
-/pdflatex generate a revision diff between the submitted and current version of my paper
+Generate a revision diff between the submitted and current version of my paper
 ```
 
 **Academic workflows:**
 ```
-/pdflatex set up a new research paper project with ACM template, biber bibliography, and latexmk automation
+Set up a new research paper project with ACM template, biber bibliography, and latexmk automation
 ```
 ```
-/pdflatex format this paper for IEEE Transactions submission
+Format this paper for IEEE Transactions submission
 ```
 
 ## What can it produce?
