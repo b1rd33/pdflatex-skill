@@ -1,0 +1,292 @@
+% Beamer Presentation Template (Modern Theme)
+% Compile: pdflatex presentation.tex (single pass)
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% Theme — clean, modern look
+\usetheme{Madrid}
+\usecolortheme{whale}
+
+% Custom colors
+\definecolor{primary}{HTML}{1E3A5F}
+\definecolor{accent}{HTML}{2196F3}
+\definecolor{success}{HTML}{4CAF50}
+\definecolor{warning}{HTML}{FF9800}
+
+\setbeamercolor{structure}{fg=primary}
+\setbeamercolor{palette primary}{bg=primary,fg=white}
+\setbeamercolor{palette secondary}{bg=primary!80,fg=white}
+\setbeamercolor{palette tertiary}{bg=primary!60,fg=white}
+\setbeamercolor{frametitle}{bg=primary,fg=white}
+\setbeamercolor{title}{fg=primary}
+\setbeamercolor{alerted text}{fg=warning}
+\setbeamercolor{block title}{bg=primary,fg=white}
+\setbeamercolor{block body}{bg=primary!5}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Frame numbers
+\setbeamertemplate{footline}{%
+    \hfill\insertframenumber/\inserttotalframenumber\hspace{8pt}\vspace{4pt}%
+}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+% Metadata
+\title{Q1 2026 Results}
+\subtitle{Board of Directors Update}
+\author{Jane Mitchell, CTO}
+\institute{Acme Corp}
+\date{March 22, 2026}
+
+\begin{document}
+
+% ============================
+% TITLE
+% ============================
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% ============================
+% AGENDA
+% ============================
+\begin{frame}{Agenda}
+    \tableofcontents
+\end{frame}
+
+% ============================
+% SECTION 1: HIGHLIGHTS
+% ============================
+\section{Q1 Highlights}
+
+\begin{frame}{Q1 at a Glance}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Revenue}
+                \centering
+                {\Huge \$47.3M}\\[4pt]
+                {\color{success} $\uparrow$ 18\% YoY}
+            \end{block}
+            \vspace{8pt}
+            \begin{block}{Gross Margin}
+                \centering
+                {\Huge 72.4\%}\\[4pt]
+                {\color{success} $\uparrow$ 4.3pp}
+            \end{block}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{block}{New Customers}
+                \centering
+                {\Huge 342}\\[4pt]
+                {\color{success} $\uparrow$ 24\% YoY}
+            \end{block}
+            \vspace{8pt}
+            \begin{block}{Net Revenue Retention}
+                \centering
+                {\Huge 124\%}\\[4pt]
+                {\color{success} $\uparrow$ 6pp}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Key Wins}
+    \begin{itemize}
+        \item<1-> \textbf{Closed largest deal in company history} --- \$2.8M ACV with Fortune 100 retailer
+        \item<2-> \textbf{Launched Platform v4.2} --- 3x faster query engine, new analytics dashboard
+        \item<3-> \textbf{Expanded to 3 new markets} --- Japan, Brazil, UAE
+        \item<4-> \textbf{Achieved SOC 2 Type II} --- Opens up regulated industry pipeline
+        \item<5-> \textbf{Employee engagement: 4.2/5.0} --- Up from 3.9 last quarter
+    \end{itemize}
+\end{frame}
+
+% ============================
+% SECTION 2: FINANCIALS
+% ============================
+\section{Financial Performance}
+
+\begin{frame}{Revenue by Segment}
+    \centering
+    \begin{tabular}{l r r r}
+        \toprule
+        \textbf{Segment} & \textbf{Q1 2025} & \textbf{Q1 2026} & \textbf{Growth} \\
+        \midrule
+        Enterprise   & \$22.1M & \$28.5M & {\color{success} +29\%} \\
+        Mid-Market   & \$10.4M & \$12.1M & {\color{success} +16\%} \\
+        SMB          & \$5.3M  & \$5.2M  & {\color{warning} -2\%} \\
+        Professional & \$2.2M  & \$1.5M  & {\color{red} -32\%} \\
+        \midrule
+        \textbf{Total} & \textbf{\$40.0M} & \textbf{\$47.3M} & {\color{success} \textbf{+18\%}} \\
+        \bottomrule
+    \end{tabular}
+
+    \vspace{12pt}
+    \small Enterprise now represents 60\% of total revenue, up from 55\%.
+\end{frame}
+
+\begin{frame}{Margin Improvement Drivers}
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{Gross Margin: 68.1\% $\rightarrow$ 72.4\%}
+            \begin{enumerate}
+                \item \textbf{Infrastructure optimization}\\
+                    Spot instances saved \$1.2M/quarter
+                \item \textbf{Better pricing}\\
+                    +8\% average Enterprise deal size
+                \item \textbf{Self-service tooling}\\
+                    40\% fewer support tickets per account
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{alertblock}{Watch: SMB Churn}
+                Monthly churn increased from 3.1\% to 4.2\%.\\[4pt]
+                Root cause: price sensitivity and missing mid-tier plan.\\[4pt]
+                \textbf{Action}: Launching Starter tier in Q2.
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ============================
+% SECTION 3: PRODUCT
+% ============================
+\section{Product \& Engineering}
+
+\begin{frame}{Major Releases}
+    \begin{description}[leftmargin=3.5cm,style=nextline]
+        \item[Platform v4.2 \hfill Jan 15] New analytics dashboard with 3x faster queries. Adoption: 78\% of Enterprise accounts within 30 days.
+        \item[API v3 \hfill Feb 8] GraphQL support and webhook improvements. 2,100 API consumers migrated.
+        \item[Mobile 2.0 \hfill Mar 1] Full feature parity with web. 45\% increase in mobile DAU.
+    \end{description}
+\end{frame}
+
+\begin{frame}{Engineering Velocity}
+    \centering
+    \begin{tabular}{l c c c}
+        \toprule
+        \textbf{Metric} & \textbf{Q3 2025} & \textbf{Q4 2025} & \textbf{Q1 2026} \\
+        \midrule
+        Deploys/week & 28 & 32 & 47 \\
+        Lead time (days) & 4.5 & 3.8 & 2.1 \\
+        Uptime & 99.93\% & 99.95\% & 99.97\% \\
+        P0 incidents & 4 & 2 & 1 \\
+        \bottomrule
+    \end{tabular}
+
+    \vspace{16pt}
+    \begin{exampleblock}{Takeaway}
+        Shipping faster with fewer incidents. Platform stability is now a competitive advantage.
+    \end{exampleblock}
+\end{frame}
+
+% ============================
+% SECTION 4: OUTLOOK
+% ============================
+\section{Q2 Outlook}
+
+\begin{frame}{Q2 2026 Targets}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Financial}
+            \begin{itemize}
+                \item Revenue: \$50.5M (+7\% QoQ)
+                \item Gross margin: 73\%+
+                \item New logos: 350+
+                \item NRR: maintain 120\%+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Strategic}
+            \begin{itemize}
+                \item Ship AI copilot (beta)
+                \item Frankfurt data center live
+                \item Launch Starter tier for SMB
+                \item Hire APAC sales leader
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    \vspace{12pt}
+    \begin{block}{Pipeline Confidence}
+        \$32M in qualified Enterprise opportunities. 60\% probability-weighted = \$19.2M.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Top Risks}
+    \begin{tabular}{l l l}
+        \toprule
+        \textbf{Risk} & \textbf{Likelihood} & \textbf{Mitigation} \\
+        \midrule
+        Macro slowdown & Medium & Multi-year deal incentives \\
+        Competitive pressure & Medium & Feature differentiation \\
+        Talent retention & Low & Retention packages approved \\
+        \bottomrule
+    \end{tabular}
+
+    \vspace{16pt}
+    \alert{No existential risks identified. Execution risk is primary concern.}
+\end{frame}
+
+% ============================
+% CLOSING
+% ============================
+\section{Summary}
+
+\begin{frame}{Summary}
+    \begin{enumerate}
+        \item \textbf{Strong Q1}: \$47.3M revenue, 72.4\% gross margin
+        \item \textbf{Enterprise momentum}: 29\% growth, record deal closed
+        \item \textbf{Product velocity}: Shipping faster with fewer incidents
+        \item \textbf{Watchpoint}: SMB churn --- Starter tier launching Q2
+        \item \textbf{Q2 outlook}: \$50.5M target with strong pipeline
+    \end{enumerate}
+
+    \vspace{24pt}
+    \centering
+    {\Large \textbf{Questions?}}\\[8pt]
+    {\small jane.mitchell@acmecorp.com}
+\end{frame}
+
+% ============================
+% BACKUP SLIDES
+% ============================
+\appendix
+
+\begin{frame}{Backup: Competitive Landscape}
+    \centering
+    \begin{tabular}{l c c c}
+        \toprule
+        & \textbf{Acme} & \textbf{Competitor A} & \textbf{Competitor B} \\
+        \midrule
+        Enterprise features & Strong & Strong & Weak \\
+        API \& integrations & Strong & Medium & Strong \\
+        Pricing flexibility & Medium & Weak & Strong \\
+        Support quality & Strong & Medium & Medium \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{Backup: Headcount Plan}
+    \centering
+    \begin{tabular}{l r r}
+        \toprule
+        \textbf{Department} & \textbf{Current} & \textbf{Q2 Target} \\
+        \midrule
+        Engineering & 312 & 335 \\
+        Sales & 198 & 215 \\
+        Customer Success & 142 & 155 \\
+        Marketing & 87 & 92 \\
+        G\&A & 108 & 112 \\
+        \midrule
+        \textbf{Total} & \textbf{847} & \textbf{909} \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
+
+\end{document}
