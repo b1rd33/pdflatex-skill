@@ -64,6 +64,10 @@ pdflatex doc.tex && biber doc && pdflatex doc.tex && pdflatex doc.tex
 # WARNING: -shell-escape allows .tex files to run arbitrary system commands.
 # Only use with trusted files. Prefer -shell-restricted when possible.
 pdflatex -shell-escape document.tex
+
+# IMPORTANT: Never hallucinate BibTeX entries. Always use the user's .bib file
+# or ask for DOIs. Never fabricate citation data from memory.
+
 ```
 
 ### PDF Preview After Compilation

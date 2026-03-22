@@ -1,8 +1,25 @@
 # pdflatex-skill
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for creating publication-quality PDF documents using LaTeX. Describe what you want in plain English — Claude writes the LaTeX, compiles it, and hands you the PDF.
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-blue.svg)](https://docs.anthropic.com/en/docs/claude-code)
+[![LaTeX](https://img.shields.io/badge/LaTeX-TeX_Live_2025-orange.svg)](https://tug.org/texlive/)
+[![Context Cost](https://img.shields.io/badge/context_cost-~2K_tokens-brightgreen.svg)](#)
+[![Templates](https://img.shields.io/badge/templates-6-blue.svg)](#)
+[![Zero Python](https://img.shields.io/badge/dependencies-zero_Python-brightgreen.svg)](#)
+
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for creating publication-quality PDF documents using LaTeX. Describe what you want in plain English — Claude writes the LaTeX, compiles it, and hands you the PDF. No LaTeX knowledge required.
 
 Invoices, reports, CVs, presentations, academic papers, letters, contracts, certificates — anything you'd normally fight Word formatting for.
+
+## Template Previews
+
+| CV | Invoice | Research Paper |
+|:---:|:---:|:---:|
+| ![CV](previews/cv.png) | ![Invoice](previews/invoice.png) | ![Research Paper](previews/research-paper.png) |
+
+| Report | Presentation | Letter |
+|:---:|:---:|:---:|
+| ![Report](previews/report.png) | ![Presentation](previews/presentation.png) | ![Letter](previews/letter.png) |
 
 ## Installation
 
