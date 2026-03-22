@@ -29,8 +29,8 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         --bib)
-            if [[ "$2" != "bibtex" && "$2" != "biber" ]]; then
-                echo "Error: --bib requires 'bibtex' or 'biber', got '$2'"
+            if [[ -z "$2" || ( "$2" != "bibtex" && "$2" != "biber" ) ]]; then
+                echo "Error: --bib requires 'bibtex' or 'biber', got '${2:-}'"
                 exit 1
             fi
             BIB_ENGINE="$2"
@@ -41,6 +41,10 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         --output-dir)
+            if [[ -z "$2" || "$2" == --* ]]; then
+                echo "Error: --output-dir requires a directory path"
+                exit 1
+            fi
             OUTPUT_DIR="$2"
             shift 2
             ;;
