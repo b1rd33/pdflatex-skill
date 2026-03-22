@@ -117,7 +117,8 @@ pdffonts document.pdf
 
 ```latex
 % With pdflatex
-\usepackage{mathptmx}          % Times math
+% \usepackage{mathptmx}        % Legacy — use newtxmath instead
+\usepackage{newtxmath}         % Times math (modern)
 \usepackage{eulervm}           % Euler math (distinctive)
 \usepackage{newtxmath}         % New TX math (high quality)
 

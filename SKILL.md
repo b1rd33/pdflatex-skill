@@ -4,7 +4,7 @@ description: |
   Professional LaTeX document compilation skill for creating publication-quality PDFs. Supports pdflatex, xelatex, lualatex engines with full bibliography chains (BibTeX/Biber), smart cross-referencing (cleveref), publication-quality tables (booktabs/siunitx), and automated builds (latexmk).
   MANDATORY TRIGGERS: LaTeX, pdflatex, xelatex, lualatex, .tex file, compile LaTeX, research paper, academic paper, journal article, thesis, dissertation, conference paper, BibTeX, Biber, biblatex, bibliography, citations, documentclass, beamer presentation, equations, mathematical notation, academic writing, paper submission, ACM template, IEEE template, Springer, Elsevier, arXiv, LaTeX invoice, LaTeX CV, LaTeX resume, LaTeX letter, LaTeX report, LaTeX certificate, typesetting, latexmk, fontspec
 license: MIT
-compatibility: Requires pdflatex or texlive and latexmk. Biber required for biblatex bibliography.
+compatibility: Requires TeX Live (or MacTeX/MiKTeX) with latexmk. Biber required for biblatex bibliography.
 metadata:
   author: christiannikolov
   version: "1.0.0"
@@ -61,6 +61,8 @@ pdflatex doc.tex && bibtex doc && pdflatex doc.tex && pdflatex doc.tex
 pdflatex doc.tex && biber doc && pdflatex doc.tex && pdflatex doc.tex
 
 # Shell escape (minted, tikz externalize)
+# WARNING: -shell-escape allows .tex files to run arbitrary system commands.
+# Only use with trusted files. Prefer -shell-restricted when possible.
 pdflatex -shell-escape document.tex
 ```
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # LaTeX Compilation Script
-# Usage: ./compile_latex.sh document.tex [engine] [--bib bibtex|biber] [--clean] [--shell-escape]
+# Usage: ./compile_latex.sh document.tex [engine] [--bib bibtex|biber] [--clean] [--shell-escape] [--output-dir DIR]
 #
 # Engines: pdflatex (default), xelatex, lualatex
 # Examples:
@@ -78,18 +78,20 @@ DIRNAME=$(dirname "$TEX_FILE")
 cd "$DIRNAME"
 BASENAME=$(basename "$BASENAME")
 
-# Build output directory option
-OUTPUT_OPT=""
+# Build compilation command as array (handles spaces in paths)
+CMD=("$ENGINE" -interaction=nonstopmode)
+[[ -n "$SHELL_ESCAPE" ]] && CMD+=("$SHELL_ESCAPE")
 if [[ -n "$OUTPUT_DIR" ]]; then
     mkdir -p "$OUTPUT_DIR"
-    OUTPUT_OPT="-output-directory=$OUTPUT_DIR"
+    CMD+=("-output-directory=$OUTPUT_DIR")
 fi
+CMD+=("${BASENAME}.tex")
 
 echo "=== Compiling $TEX_FILE with $ENGINE ==="
 
 # First pass
 echo "[1/4] First $ENGINE pass..."
-$ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
+"${CMD[@]}"
 
 # Bibliography pass if requested
 if [[ -n "$BIB_ENGINE" ]]; then
@@ -109,13 +111,13 @@ if [[ -n "$BIB_ENGINE" ]]; then
     fi
 
     echo "[3/4] Second $ENGINE pass..."
-    $ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
+    "${CMD[@]}"
 
     echo "[4/4] Third $ENGINE pass..."
-    $ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
+    "${CMD[@]}"
 else
     echo "[2/4] Second $ENGINE pass (for cross-references)..."
-    $ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
+    "${CMD[@]}"
 fi
 
 # Clean auxiliary files if requested

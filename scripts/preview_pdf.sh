@@ -44,7 +44,7 @@ case "$(uname -s)" in
         ;;
     *)
         echo "Could not detect a PDF viewer. File is at: $PDF_FILE"
-        exit 0
+        exit 1
         ;;
 esac
 

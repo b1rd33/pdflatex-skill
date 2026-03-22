@@ -25,19 +25,27 @@ if [[ ! -d "$DIR" ]]; then
     exit 1
 fi
 
+# Safety: refuse to operate on root-level directories
+case "$(cd "$DIR" && pwd)" in
+    /|/home|/Users|/var|/etc|/tmp)
+        echo "Error: Refusing to clean root-level directory '$DIR'"
+        exit 1
+        ;;
+esac
+
 echo "Cleaning LaTeX auxiliary files in: $DIR"
 
 # Common auxiliary extensions (matches .gitignore)
 AUX_EXT="aux log bbl blg out toc lof lot bcf run.xml fls fdb_latexmk synctex.gz nav snm vrb glo gls glg ist acn acr alg idx ind ilg"
 
 for ext in $AUX_EXT; do
-    find "$DIR" -name "*.$ext" -type f -delete 2>/dev/null
+    find "$DIR" -maxdepth 3 -name "*.$ext" -type f -delete 2>/dev/null
 done
 
 # Clean PDF if --all
 if [[ "$CLEAN_ALL" == true ]]; then
     echo "Also removing PDF files..."
-    find "$DIR" -name "*.pdf" -type f -delete 2>/dev/null
+    find "$DIR" -maxdepth 3 -name "*.pdf" -type f -delete 2>/dev/null
 fi
 
 echo "Done."
