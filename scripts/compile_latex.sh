@@ -1,12 +1,13 @@
 #!/bin/bash
 # LaTeX Compilation Script
-# Usage: ./compile_latex.sh document.tex [engine] [--bib bibtex|biber] [--clean]
+# Usage: ./compile_latex.sh document.tex [engine] [--bib bibtex|biber] [--clean] [--shell-escape]
 #
 # Engines: pdflatex (default), xelatex, lualatex
 # Examples:
 #   ./compile_latex.sh paper.tex
 #   ./compile_latex.sh paper.tex xelatex --bib biber
 #   ./compile_latex.sh paper.tex pdflatex --bib bibtex --clean
+#   ./compile_latex.sh paper.tex --shell-escape    # for minted, tikz externalize
 
 set -e
 
@@ -15,6 +16,7 @@ ENGINE="pdflatex"
 BIB_ENGINE=""
 CLEAN=false
 OUTPUT_DIR=""
+SHELL_ESCAPE=""
 
 # Parse arguments
 TEX_FILE="$1"
@@ -27,6 +29,10 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         --bib)
+            if [[ "$2" != "bibtex" && "$2" != "biber" ]]; then
+                echo "Error: --bib requires 'bibtex' or 'biber', got '$2'"
+                exit 1
+            fi
             BIB_ENGINE="$2"
             shift 2
             ;;
@@ -38,7 +44,12 @@ while [[ $# -gt 0 ]]; do
             OUTPUT_DIR="$2"
             shift 2
             ;;
+        --shell-escape)
+            SHELL_ESCAPE="-shell-escape"
+            shift
+            ;;
         *)
+            echo "Warning: Unknown option '$1' (ignored)"
             shift
             ;;
     esac
@@ -46,7 +57,7 @@ done
 
 # Validate input
 if [[ -z "$TEX_FILE" ]]; then
-    echo "Usage: $0 <file.tex> [pdflatex|xelatex|lualatex] [--bib bibtex|biber] [--clean]"
+    echo "Usage: $0 <file.tex> [pdflatex|xelatex|lualatex] [--bib bibtex|biber] [--clean] [--shell-escape] [--output-dir DIR]"
     exit 1
 fi
 
@@ -74,7 +85,7 @@ echo "=== Compiling $TEX_FILE with $ENGINE ==="
 
 # First pass
 echo "[1/4] First $ENGINE pass..."
-$ENGINE -interaction=nonstopmode $OUTPUT_OPT "${BASENAME}.tex"
+$ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
 
 # Bibliography pass if requested
 if [[ -n "$BIB_ENGINE" ]]; then
@@ -94,13 +105,13 @@ if [[ -n "$BIB_ENGINE" ]]; then
     fi
 
     echo "[3/4] Second $ENGINE pass..."
-    $ENGINE -interaction=nonstopmode $OUTPUT_OPT "${BASENAME}.tex"
+    $ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
 
     echo "[4/4] Third $ENGINE pass..."
-    $ENGINE -interaction=nonstopmode $OUTPUT_OPT "${BASENAME}.tex"
+    $ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
 else
     echo "[2/4] Second $ENGINE pass (for cross-references)..."
-    $ENGINE -interaction=nonstopmode $OUTPUT_OPT "${BASENAME}.tex"
+    $ENGINE -interaction=nonstopmode $SHELL_ESCAPE $OUTPUT_OPT "${BASENAME}.tex"
 fi
 
 # Clean auxiliary files if requested

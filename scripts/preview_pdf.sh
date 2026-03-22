@@ -43,8 +43,8 @@ case "$(uname -s)" in
         fi
         ;;
     *)
-        echo "Unsupported platform. Open manually: $PDF_FILE"
-        exit 1
+        echo "Could not detect a PDF viewer. File is at: $PDF_FILE"
+        exit 0
         ;;
 esac
 

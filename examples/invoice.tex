@@ -1,5 +1,5 @@
 % Professional Invoice Template
-% Compile: pdflatex invoice.tex (single pass)
+% Compile: pdflatex invoice.tex && pdflatex invoice.tex (two passes for lastpage)
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
@@ -87,7 +87,7 @@
 % ============================
 % LINE ITEMS
 % ============================
-\begin{tabularx}{\textwidth}{Xlrrr}
+\begin{tabularx}{\textwidth}{Xlrr}
     \toprule
     \textbf{Description} & \textbf{Qty} & \textbf{Rate} & \textbf{Amount} \\
     \midrule

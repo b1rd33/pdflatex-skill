@@ -2,7 +2,7 @@
 name: pdflatex
 description: |
   Professional LaTeX document compilation skill for creating publication-quality PDFs. Supports pdflatex, xelatex, lualatex engines with full bibliography chains (BibTeX/Biber), smart cross-referencing (cleveref), publication-quality tables (booktabs/siunitx), and automated builds (latexmk).
-  MANDATORY TRIGGERS: LaTeX, pdflatex, xelatex, lualatex, .tex file, compile LaTeX, research paper, academic paper, journal article, thesis, dissertation, conference paper, BibTeX, Biber, biblatex, bibliography, citations, documentclass, beamer presentation, equations, mathematical notation, academic writing, paper submission, ACM template, IEEE template, Springer, Elsevier, arXiv, invoice, CV, resume, letter, report, certificate, contract, NDA, proposal, book, typesetting
+  MANDATORY TRIGGERS: LaTeX, pdflatex, xelatex, lualatex, .tex file, compile LaTeX, research paper, academic paper, journal article, thesis, dissertation, conference paper, BibTeX, Biber, biblatex, bibliography, citations, documentclass, beamer presentation, equations, mathematical notation, academic writing, paper submission, ACM template, IEEE template, Springer, Elsevier, arXiv, LaTeX invoice, LaTeX CV, LaTeX resume, LaTeX letter, LaTeX report, LaTeX certificate, typesetting, latexmk, fontspec
 license: MIT
 compatibility: Requires pdflatex or texlive and latexmk. Biber required for biblatex bibliography.
 metadata:
@@ -194,7 +194,7 @@ Ready-to-use templates in `examples/`:
 ## Scripts
 
 ```bash
-./scripts/compile_latex.sh document.tex [pdflatex|xelatex|lualatex] [--bib bibtex|biber]
-./scripts/clean_latex.sh [directory]
+./scripts/compile_latex.sh document.tex [pdflatex|xelatex|lualatex] [--bib bibtex|biber] [--clean] [--shell-escape] [--output-dir DIR]
+./scripts/clean_latex.sh [directory] [--all]
 ./scripts/preview_pdf.sh output.pdf
 ```

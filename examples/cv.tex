@@ -9,6 +9,7 @@
 \usepackage[margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{textcase}
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{fontawesome5}
@@ -31,9 +32,9 @@
 
 % Section formatting
 \titleformat{\section}
-    {\large\bfseries\color{primary}\uppercase}
-    {}{0em}{}
-    [\vspace{-6pt}\textcolor{accent}{\rule{\textwidth}{1pt}}]
+    {\large\bfseries\color{primary}}
+    {}{0em}{\MakeTextUppercase}
+    [\vspace{-6pt}{\color{accent}\rule{\textwidth}{1pt}}]
 \titlespacing{\section}{0pt}{8pt}{4pt}
 
 % Custom commands

@@ -37,7 +37,9 @@ Create `main.xmpdata` (same name as .tex file):
 \Publisher{University Name}
 ```
 
-## Method 2: hyperxmp + hyperref
+## Method 2: hyperxmp + hyperref (Metadata Only)
+
+> **Note**: This method sets PDF/A metadata flags but does **not** guarantee full PDF/A compliance. You still need embedded fonts, no transparency, and proper color profiles. Always validate with veraPDF after compilation. For reliable compliance, prefer Method 1 (pdfx package).
 
 ```latex
 \usepackage{hyperref}

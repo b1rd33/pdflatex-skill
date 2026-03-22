@@ -127,8 +127,8 @@ keyword1, keyword2
 **Tips**:
 ```latex
 % Avoid these for arXiv compatibility
-% \usepackage{...}[option=value]  % Some options fail
-% \input{/absolute/path}          % Use relative paths
+% Non-standard option syntax can fail on older TeX Live
+% \input{/absolute/path}          % Use relative paths only
 ```
 
 **Test locally**: `pdflatex --interaction=nonstopmode main.tex`

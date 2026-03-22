@@ -11,8 +11,8 @@ Uses `.tfm` font metrics. Limited to fonts packaged for LaTeX.
 \usepackage{lmodern}           % Latin Modern (default, clean)
 
 % Alternative font packages
-\usepackage{times}             % Times-like (deprecated — use mathptmx)
-\usepackage{mathptmx}          % Times + matching math
+\usepackage{newtxtext,newtxmath} % Times + matching math (modern, recommended)
+% \usepackage{mathptmx}         % Legacy Times — use newtx instead
 \usepackage{palatino}          % Palatino
 \usepackage{libertinus}        % Libertinus (modern, open source)
 \usepackage{ebgaramond}        % EB Garamond (elegant serif)
