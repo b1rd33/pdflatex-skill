@@ -185,11 +185,13 @@ pdflatex main-diffv1.0-submission.tex
 ## Example Templates
 
 Ready-to-use templates in `examples/`:
+- `research-paper.tex` — Academic paper with biblatex, cleveref, siunitx (+ `references.bib`)
 - `invoice.tex` — Professional invoice with line items and totals
 - `report.tex` — Business report with TOC, sections, figures, tables
 - `letter.tex` — Formal business letter
 - `presentation.tex` — Beamer slide deck (modern theme)
 - `cv.tex` — Modern CV/resume
+- `.latexmkrc` — Ready-to-use build configuration
 
 ## Scripts
 

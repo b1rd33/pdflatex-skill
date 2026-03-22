@@ -168,11 +168,14 @@ pdflatex-skill/
 │   ├── clean_latex.sh      # Remove auxiliary files
 │   └── preview_pdf.sh      # Open PDF (macOS/Linux/WSL)
 └── examples/               # Ready-to-compile templates
+    ├── research-paper.tex  # Academic paper with bibliography
+    ├── references.bib      # Example bibliography file
     ├── invoice.tex         # Professional invoice
     ├── report.tex          # Business report with TOC
     ├── letter.tex          # Formal business letter
     ├── presentation.tex    # Beamer slide deck
-    └── cv.tex              # Modern CV/resume
+    ├── cv.tex              # Modern CV/resume
+    └── .latexmkrc          # Build configuration template
 ```
 
 ### Engine support

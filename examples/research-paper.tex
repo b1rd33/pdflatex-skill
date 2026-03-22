@@ -1,0 +1,227 @@
+% Research Paper Template (Modern Best Practices)
+% Compile: latexmk -pdf main.tex
+% Or: pdflatex → biber → pdflatex → pdflatex
+\documentclass[11pt,a4paper]{article}
+
+%% ===========================================
+%% ENCODING AND FONTS
+%% ===========================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}           % Modern, fully embeddable fonts
+\usepackage{microtype}         % Improved typography
+
+%% ===========================================
+%% PAGE LAYOUT
+%% ===========================================
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing                % 1.5 line spacing (adjust as needed)
+
+%% ===========================================
+%% MATHEMATICS
+%% ===========================================
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+%% ===========================================
+%% GRAPHICS AND FIGURES
+%% ===========================================
+\usepackage{graphicx}
+\graphicspath{{figures/}}      % Default figures directory
+\usepackage{subcaption}        % Subfigures
+
+%% ===========================================
+%% TABLES
+%% ===========================================
+\usepackage{booktabs}          % Professional rules
+\usepackage{siunitx}           % Number alignment and units
+\sisetup{
+    round-mode = places,
+    round-precision = 2,
+    detect-weight = true
+}
+\usepackage{tabularx}          % Auto-width columns
+
+%% ===========================================
+%% CODE LISTINGS (choose one)
+%% ===========================================
+% Option 1: minted (requires -shell-escape)
+% \usepackage{minted}
+
+% Option 2: listings (no shell-escape needed)
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    frame=single
+}
+
+%% ===========================================
+%% BIBLIOGRAPHY (Modern - biblatex + biber)
+%% ===========================================
+\usepackage[
+    backend=biber,
+    style=numeric,             % Or: authoryear, alphabetic, apa, ieee
+    sorting=nyt,               % Name, year, title
+    maxbibnames=99
+]{biblatex}
+\addbibresource{references.bib}
+
+%% ===========================================
+%% CROSS-REFERENCES (load order critical!)
+%% ===========================================
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=cyan,
+    pdftitle={Your Paper Title},
+    pdfauthor={Your Name},
+    pdfkeywords={keyword1, keyword2, keyword3}
+}
+\usepackage[noabbrev,capitalise]{cleveref}  % MUST be after hyperref
+
+%% ===========================================
+%% DOCUMENT METADATA
+%% ===========================================
+\title{Your Paper Title}
+\author{
+    First Author\thanks{Affiliation, \texttt{email@example.com}}
+    \and
+    Second Author\thanks{Affiliation, \texttt{email@example.com}}
+}
+\date{\today}
+
+%% ===========================================
+%% DOCUMENT
+%% ===========================================
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Write your abstract here. It should be a concise summary of your research,
+typically 150--300 words, covering the problem, methods, key results, and conclusions.
+Use an en-dash (--) for ranges, not a hyphen.
+\end{abstract}
+
+\noindent\textbf{Keywords:} keyword1, keyword2, keyword3
+
+\section{Introduction}
+\label{sec:intro}
+
+Introduce your research problem and motivation. When citing, use
+\textcite{example_key} for ``Author (Year)'' or \cite{example_key} for ``[1]''.
+
+Use smart cross-references: see \cref{sec:methods} for methodology and
+\cref{fig:example} for results visualization.
+
+\section{Related Work}
+\label{sec:related}
+
+Discuss previous research. Multiple citations: \cite{example_key,book_example}.
+
+\section{Methodology}
+\label{sec:methods}
+
+Describe your approach. Include equations with labels:
+\begin{equation}
+    \mathcal{L}(\theta) = -\sum_{i=1}^{N} y_i \log \hat{y}_i + (1-y_i) \log(1-\hat{y}_i)
+    \label{eq:loss}
+\end{equation}
+
+Reference equations with \cref{eq:loss}. For multiple: \cref{eq:loss,eq:precision}.
+
+\begin{align}
+    \text{Precision} &= \frac{\text{TP}}{\text{TP} + \text{FP}} \label{eq:precision} \\
+    \text{Recall} &= \frac{\text{TP}}{\text{TP} + \text{FN}} \label{eq:recall}
+\end{align}
+
+\section{Results}
+\label{sec:results}
+
+Present your findings with figures and tables.
+
+% Example figure
+\begin{figure}[htbp]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{your_figure.pdf}
+    \fbox{\parbox{0.8\textwidth}{\centering\vspace{2cm}Figure Placeholder\vspace{2cm}}}
+    \caption{Description of the figure. Explain what the reader should observe.}
+    \label{fig:example}
+\end{figure}
+
+% Example table with siunitx alignment
+\begin{table}[htbp]
+    \centering
+    \caption{Model performance comparison. Best results in bold.}
+    \label{tbl:results}
+    \sisetup{table-format=2.2}
+    \begin{tabular}{l S S[table-format=1.3] S[table-format=2.1]}
+        \toprule
+        Model & {Accuracy (\%)} & {F1 Score} & {Latency (ms)} \\
+        \midrule
+        Baseline    & 75.32 & 0.723 & 12.4 \\
+        ResNet-50   & 89.15 & 0.871 & 45.2 \\
+        Transformer & 92.48 & 0.912 & 78.3 \\
+        \textbf{Ours} & \bfseries 94.21 & \bfseries 0.934 & 52.1 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As shown in \cref{tbl:results}, our method achieves the best performance.
+
+\section{Discussion}
+\label{sec:discussion}
+
+Interpret results and discuss implications. Address limitations.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Summarize contributions:
+\begin{enumerate}
+    \item First contribution
+    \item Second contribution
+    \item Third contribution
+\end{enumerate}
+
+Future work includes\ldots
+
+\section*{Acknowledgments}
+
+This work was supported by [funding source]. We thank [collaborators].
+
+%% ===========================================
+%% BIBLIOGRAPHY
+%% ===========================================
+\printbibliography
+
+%% ===========================================
+%% APPENDIX (optional)
+%% ===========================================
+\appendix
+\section{Additional Results}
+\label{app:additional}
+
+Supplementary material referenced from main text.
+
+\end{document}
