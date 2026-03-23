@@ -195,7 +195,6 @@ Ready-to-use templates in `examples/`:
 - `invoice.tex` — Professional invoice with line items and totals
 - `report.tex` — Business report with TOC, sections, figures, tables
 - `letter.tex` — Formal business letter
-- `presentation.tex` — Beamer slide deck (modern theme)
 - `cv.tex` — Modern CV/resume
 - `.latexmkrc` — Ready-to-use build configuration
 
