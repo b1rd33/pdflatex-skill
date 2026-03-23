@@ -4,7 +4,7 @@
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-blue.svg)](https://docs.anthropic.com/en/docs/claude-code)
 [![LaTeX](https://img.shields.io/badge/LaTeX-TeX_Live_2025-orange.svg)](https://tug.org/texlive/)
 [![Context Cost](https://img.shields.io/badge/context_cost-~2K_tokens-brightgreen.svg)](#)
-[![Templates](https://img.shields.io/badge/templates-5-blue.svg)](#)
+[![Templates](https://img.shields.io/badge/templates-6-blue.svg)](#)
 [![Zero Python](https://img.shields.io/badge/dependencies-zero_Python-brightgreen.svg)](#)
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for creating publication-quality PDF documents using LaTeX. Describe what you want in plain English — Claude writes the LaTeX, compiles it, and hands you the PDF. No LaTeX knowledge required.
@@ -17,9 +17,9 @@ Invoices, reports, CVs, presentations, academic papers, letters, contracts, cert
 |:---:|:---:|:---:|
 | ![CV](previews/cv.png) | ![Invoice](previews/invoice.png) | ![Research Paper](previews/research-paper.png) |
 
-| Report | Letter |
-|:---:|:---:|
-| ![Report](previews/report.png) | ![Letter](previews/letter.png) |
+| Demo Report (charts!) | Report | Letter |
+|:---:|:---:|:---:|
+| ![Demo Report](previews/demo-report.png) | ![Report](previews/report.png) | ![Letter](previews/letter.png) |
 
 ## Installation
 
@@ -191,6 +191,7 @@ pdflatex-skill/
     ├── references.bib      # Example bibliography file
     ├── invoice.tex         # Professional invoice
     ├── report.tex          # Business report with TOC
+    ├── demo-report.tex     # Rich report with charts and plots
     ├── letter.tex          # Formal business letter
     ├── cv.tex              # Modern CV/resume
     └── .latexmkrc          # Build configuration template

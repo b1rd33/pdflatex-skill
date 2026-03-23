@@ -194,6 +194,7 @@ Ready-to-use templates in `examples/`:
 - `research-paper.tex` — Academic paper with biblatex, cleveref, siunitx (+ `references.bib`)
 - `invoice.tex` — Professional invoice with line items and totals
 - `report.tex` — Business report with TOC, sections, figures, tables
+- `demo-report.tex` — Rich report with charts, tables, and scatter plots (pgfplots)
 - `letter.tex` — Formal business letter
 - `cv.tex` — Modern CV/resume
 - `.latexmkrc` — Ready-to-use build configuration
